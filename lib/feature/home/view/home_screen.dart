@@ -1,10 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:task_project/feature/home/controller/home_controller.dart';
 import 'package:task_project/feature/home/model/prouct_model.dart';
+import 'package:task_project/theme/light_them.dart';
 import 'package:task_project/util/dimensions.dart';
+import 'package:task_project/util/style.dart';
 
 
 
@@ -17,7 +20,8 @@ class HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Task Project"),
+        backgroundColor:  Color(0xFFB71C1C),
+        title: Text("Task Project",style:textMedium.copyWith(color: lightTheme.cardColor),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(Dimensions.defaultSize),
@@ -29,16 +33,13 @@ class HomeScreenView extends StatelessWidget {
                  //   itemCount: (productController.productList.length??0)<=6?6:productController.productList.length,
 
                     itemCount: productController.productList.length > 6
-                        ? 6
-                        : productController.productList.length,
+                        ? 6 : productController.productList.length,
 
                     itemBuilder: (_,index){
 
                       Product getProduct = productController.productList[index];
                       return InkWell(
-                        onTap: (){
-
-                        },
+                        onTap: (){  },
                         child: Card(
                           child:   Padding(
                             padding: const EdgeInsets.all(Dimensions.defaultSize),
@@ -47,17 +48,17 @@ class HomeScreenView extends StatelessWidget {
                                 Image.network(getProduct.image,fit: BoxFit.fill,height: 180,),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
-                                  child: Text(getProduct.title,overflow: TextOverflow.ellipsis,),
+                                  child: Text(getProduct.title,overflow: TextOverflow.ellipsis, style: textMedium.copyWith(fontSize: 12.sp),),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
 
-                                    Text( "Price :${getProduct.price.toString()}" ),
+                                    Text( "Price :${getProduct.price.toString()}",style: textMedium.copyWith(fontSize: 12.sp), ),
                                     Row(
                                       children: [
                                         const Icon(Icons.star_rate,color: Colors.red,),
-                                        Text(getProduct.rating.rate.toString()),
+                                        Text(getProduct.rating.rate.toString(),style: textMedium.copyWith(fontSize: 12.sp)),
                                       ],
                                     ),
                                   ],),
