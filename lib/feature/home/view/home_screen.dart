@@ -9,6 +9,8 @@ import 'package:task_project/theme/light_them.dart';
 import 'package:task_project/util/dimensions.dart';
 import 'package:task_project/util/style.dart';
 
+import 'about_screen.dart';
+
 
 
 
@@ -20,32 +22,31 @@ class HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Color(0xFFB71C1C),
+        backgroundColor: Colors.cyan,
         title: Text("Task Project",style:textMedium.copyWith(color: lightTheme.cardColor),),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(Dimensions.defaultSize),
+        padding:  EdgeInsets.all(Dimensions.defaultSize),
         child: Column(
           children: [
             Expanded(
               child: GetBuilder<ProductController>(builder: (_){
-                return productController.isLoading ? Center(child: const CircularProgressIndicator()): GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 5),
-                 //   itemCount: (productController.productList.length??0)<=6?6:productController.productList.length,
+                return productController.isLoading ? Center(child: const CircularProgressIndicator()): GridView.builder(gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 5),
 
-                    itemCount: productController.productList.length > 6
-                        ? 6 : productController.productList.length,
+
+                    itemCount: productController.productList.length > 6  ? 6 : productController.productList.length,
 
                     itemBuilder: (_,index){
 
                       Product getProduct = productController.productList[index];
                       return InkWell(
-                        onTap: (){  },
+                        onTap: (){  Get.to(ProductDetailsScreenView( getProduct));},
                         child: Card(
                           child:   Padding(
                             padding: const EdgeInsets.all(Dimensions.defaultSize),
                             child: Column(
                               children: [
-                                Image.network(getProduct.image,fit: BoxFit.fill,height: 180,),
+                                Image.network(getProduct.image,fit: BoxFit.fill,height: 100.h,),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
                                   child: Text(getProduct.title,overflow: TextOverflow.ellipsis, style: textMedium.copyWith(fontSize: 12.sp),),

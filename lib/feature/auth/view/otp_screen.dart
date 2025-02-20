@@ -7,8 +7,8 @@ import 'package:task_project/widgets/custom_bottom.dart';
 
 import 'reset_password_view.dart';
 
-class ForgetPasswordScreenView extends StatelessWidget {
-  const ForgetPasswordScreenView({super.key});
+class OtpScreenView extends StatelessWidget {
+  const OtpScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {

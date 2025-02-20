@@ -9,10 +9,10 @@ import 'package:task_project/util/dimensions.dart';
 import 'package:task_project/util/style.dart';
 import 'package:task_project/widgets/cumstom_textfild.dart';
 
-import 'forget_password.dart';
+import 'otp_screen.dart';
 
 class SighUpScreen extends StatelessWidget {
-  // const SighUpScreen({super.key});
+
 
    AuthController authController = Get.put(AuthController());
 
@@ -20,7 +20,7 @@ class SighUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      appBar: AppBar( backgroundColor: const Color(0xFFB71C1C), centerTitle: true,
+      appBar: AppBar( backgroundColor: Colors.cyan, centerTitle: true,
         title:  Text("Sign Up",style: TextStyle(color: Colors.white,fontSize: 14.sp),),
         foregroundColor: Colors.white,),
 
@@ -43,7 +43,7 @@ class SighUpScreen extends StatelessWidget {
               SizedBox(height: Dimensions.fifty,),
 
               InkWell(
-                child: Container( height: 45.h, decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.defaultSize),  color: const Color(0xFFB71C1C),),
+                child: Container( height: 45.h, decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.defaultSize),  color: Colors.cyan,),
                   child:  Center(child: Text("Sign up",style: TextStyle(fontSize: 18.sp,color: Colors.white),),),),
 
                 onTap: (){

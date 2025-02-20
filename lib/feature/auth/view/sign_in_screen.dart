@@ -5,12 +5,13 @@ import 'package:get/get.dart';
 
 import 'package:task_project/feature/auth/controller/auth_controller.dart';
 import 'package:task_project/feature/auth/controller/signin_controller.dart';
+import 'package:task_project/feature/auth/view/forget_passwordscreen.dart';
 import 'package:task_project/feature/auth/view/sigh_up_screen.dart';
 import 'package:task_project/util/dimensions.dart';
 import 'package:task_project/util/style.dart';
 import 'package:task_project/widgets/cumstom_textfild.dart';
 
-import 'forget_password.dart';
+import 'otp_screen.dart';
 
 class SignInScreenView extends StatefulWidget {
   const SignInScreenView({super.key});
@@ -32,7 +33,8 @@ class _SignInScreenViewState extends State<SignInScreenView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      appBar: AppBar( backgroundColor: const Color(0xFFB71C1C), centerTitle: true,
+      appBar: AppBar( backgroundColor: Colors.cyan,
+        centerTitle: true,
         title:  Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16.sp),),
         foregroundColor: Colors.white,),
 
@@ -57,7 +59,7 @@ class _SignInScreenViewState extends State<SignInScreenView> {
                   children: [
                     Text('Remember ',style: textMedium.copyWith(color:Colors.black,fontSize: Dimensions.twenty )),
                     InkWell(
-                        onTap: (){Get.to(ForgetPasswordScreenView());},
+                        onTap: (){Get.to(ForgetPasswordscreen());},
                         child: Text("Forgot Password ?",style: textMedium.copyWith(color:Colors.red,fontSize: Dimensions.twenty ),)),
                   ],
                 ),
@@ -72,7 +74,7 @@ class _SignInScreenViewState extends State<SignInScreenView> {
                   ))),
               const SizedBox(height: Dimensions.fifty,),
               InkWell(
-                child: Container( height: 40.h, decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.defaultSize),  color: const Color(0xFFB71C1C),),
+                child: Container( height: 40.h, decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.defaultSize),  color:Colors.cyan,),
                   child:  Center(child: Text("Sign in",style: TextStyle(fontSize: 16.sp,color: Colors.white),),),),
 
                 onTap: (){signInController.signin();},),

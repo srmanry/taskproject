@@ -30,7 +30,8 @@ class SigninController extends GetxController {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword( email: email, password: password,);
       Get.offAll(HomeScreenView());
       ScaffoldMessenger.of(Get.context!).showSnackBar(
-        SnackBar(content: Text('Login Successful!')),  );
+        SnackBar(content: Text('Login Successful!')),
+      );
     } catch (e) {
       String errorMessage = "Login failed! Please try again.";
       ScaffoldMessenger.of(Get.context!).showSnackBar(
